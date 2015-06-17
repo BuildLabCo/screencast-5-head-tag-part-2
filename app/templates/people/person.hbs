@@ -1,0 +1,17 @@
+{{#link-to "people" classNames="modal-closer"}}<span>x</span>{{/link-to}}
+<div class="modal">
+  <div class="top" style="background-image: url({{model.image}})"></div>
+  <div class="bottom">
+    <strong>{{model.department}}</strong>
+    <h1>{{model.name}}</h1>
+    <p>{{model.bio}}</p>
+    <div class="blade-container">
+      <div class="blade" style="background-image: url({{previousPerson.image}})">
+        {{#link-to "people.person" previousPerson.id}}{{previousPerson.name}}{{/link-to}}
+      </div>
+      <div class="blade" style="background-image: url({{nextPerson.image}})">
+        {{#link-to "people.person" nextPerson.id}}{{nextPerson.name}}{{/link-to}}
+      </div>
+    </div>
+  </div>
+</div>

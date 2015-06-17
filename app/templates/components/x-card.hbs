@@ -1,0 +1,19 @@
+{{#link-to "people.person" content classNames="cover-link"}}{{/link-to}}
+<div class="image">
+  <img src="{{content.image}}">
+</div>
+<div class="content">
+  <a class="header">{{content.name}}</a>
+  <div class="meta">
+    <span class="date">{{content.department}}</span>
+  </div>
+  <div class="description">
+    {{content.bio}}
+  </div>
+</div>
+<div class="extra content">
+  <a>
+    <i class="cloud icon"></i>
+    {{content.numReports}} Reports
+  </a>
+</div>

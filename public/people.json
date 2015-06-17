@@ -1,0 +1,76 @@
+{
+  "people": [
+    { 
+      "id": 1,
+      "image":      "http://semantic-ui.com/images/avatar/large/elliot.jpg", 
+      "name":       "Stevie Feliciano",
+      "department": "IT",
+      "bio":        "Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.",
+      "numReports": 22,
+      "gender":     "male"
+    },
+    { 
+      "id": 2,
+      "image":      "http://semantic-ui.com/images/avatar/large/helen.jpg", 
+      "name":       "Helen Long",
+      "department": "Executive",
+      "bio":        "Helen is a library scientist living in New York City. She likes to spend her time reading, running, and writing.",
+      "numReports": 2,
+      "gender":     "female"
+    },
+    { 
+      "id": 3,
+      "image":      "http://semantic-ui.com/images/avatar/large/jenny.jpg", 
+      "name":       "Jenny Hes",
+      "department": "HR",
+      "bio":        "Jenny is a library scientist living in New York City. She likes to spend her time reading, running, and writing.",
+      "numReports": 2,
+      "gender":     "female"
+    },
+    { 
+      "id": 4,
+      "image":      "http://semantic-ui.com/images/avatar/large/veronika.jpg", 
+      "name":       "Veronika Bauer",
+      "department": "IT",
+      "bio":        "Veronika is a library scientist living in New York City. She likes to spend her time reading, running, and writing.",
+      "numReports": 55,
+      "gender":     "female"
+    },
+    { 
+      "id": 5,
+      "image":      "http://semantic-ui.com/images/avatar/large/stevie.jpg", 
+      "name":       "Stevie Davis",
+      "department": "Sales",
+      "bio":        "Stevie is a library scientist living in New York City. She likes to spend her time reading, running, and writing.",
+      "numReports": 55,
+      "gender":     "female"
+    },
+    { 
+      "id": 6,
+      "image":      "http://semantic-ui.com/images/avatar/large/steve.jpg", 
+      "name":       "Steve Sanders",
+      "department": "Admin",
+      "bio":        "Steve is a library scientist living in New York City. She likes to spend her time reading, running, and writing.",
+      "numReports": 55,
+      "gender":     "male"
+    },
+    { 
+      "id": 7,
+      "image":      "http://semantic-ui.com/images/avatar/large/daniel.jpg", 
+      "name":       "Daniel Sanders",
+      "department": "Sales",
+      "bio":        "Daniel is a library scientist living in New York City. She likes to spend her time reading, running, and writing.",
+      "numReports": 515,
+      "gender":     "male"
+    },
+    { 
+      "id": 8,
+      "image":      "http://semantic-ui.com/images/avatar/large/matt.jpg", 
+      "name":       "Matt Kempler",
+      "department": "Sales",
+      "bio":        "Matt is a library scientist living in New York City. She likes to spend her time reading, running, and writing.",
+      "numReports": 102,
+      "gender":     "male"
+    }
+  ]
+}

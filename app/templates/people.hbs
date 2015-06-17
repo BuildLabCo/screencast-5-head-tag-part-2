@@ -1,0 +1,48 @@
+<div class="icon-nav-container ui grid">
+  <div class="ui sixteen wide row">
+    <div class="icon-nav ten wide column">
+      <div class="item">
+        {{#link-to "people" (query-params department="null")}}
+          {{fa-icon "genderless"}}
+          <span>All</span>
+        {{/link-to}}
+      </div>
+      {{#each departments as |department|}}
+        <div class="item">
+          {{#link-to "people" (query-params department=department.name)}}
+            {{fa-icon department.icon}}
+            <span>{{department.name}}</span>
+          {{/link-to}}
+        </div>
+      {{/each}}
+    </div>
+    <div class="icon-nav six wide column gender">
+      <div class="item">
+        {{#link-to "people" (query-params gender="null")}}
+          {{fa-icon "venus-mars"}}
+          <span>All</span>
+        {{/link-to}}
+      </div>
+      <div class="item">
+        {{#link-to "people" (query-params gender="male")}}
+          {{fa-icon "male"}}
+          <span>Males</span>
+        {{/link-to}}
+      </div>
+      <div class="item">
+        {{#link-to "people" (query-params gender="female")}}
+          {{fa-icon "female"}}
+          <span>Females</span>
+        {{/link-to}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui three doubling cards">
+  {{#each filteredPeople as |person|}}
+    {{x-card content=person}}
+  {{/each}}
+</div>
+
+{{outlet}}
