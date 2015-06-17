@@ -1,0 +1,3 @@
+-> Start by adding meta tags to the index.html and then updating them individually in the didTransition handler
+-> Then refactor the use a meta property
+-> Then use ember-cli-meta-tags
