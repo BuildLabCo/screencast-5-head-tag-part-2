@@ -1,10 +1,10 @@
+// so we can see by just adding this mixin to our route,
+// all of our meta tags are applied
 import Ember from 'ember';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(RouteMetaMixin, {
   
-  // so now we want to add the department to our meta
-  // but now when we change department filters
-  // the department isn't updating
   meta: function() {
     let department = this.controllerFor('people').get('department'),
         title = "AcmeCo: People";
