@@ -1,10 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  // for the first iteration, we'll just have K/V obj here
-  // in a later commit, we'll refactor to break up property/content and name/content
+  
+  // Facebook uses the property key
+  // but other things like twitter use the name key
+
   meta: {
-    "og:name":  "AcmeCo: People",
-    "og:image": "//www.acmeco.com/logo.png"
+    property: {
+      "og:name":  "AcmeCo: People",
+      "og:image": "//www.acmeco.com/logo.png"
+    },
+    name: {
+      "twitter:title": "AcmeCo: People",
+      "twitter:image": "//www.acmeco.com/logo.png"
+    }
   },
 });

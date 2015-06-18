@@ -7,9 +7,16 @@ export default Ember.Route.extend({
   // we're also going to add and additional property here to see how that works
   meta: function() {
     return {
-      "og:name": `AcmeCo: ${this.get('currentModel.name')}`,
-      "og:image": this.get('currentModel.image'),
-      "og:description": this.get('currentModel.bio')
+      property: {
+        "og:name": `AcmeCo: ${this.get('currentModel.name')}`,
+        "og:image": this.get('currentModel.image'),
+        "og:description": this.get('currentModel.bio')
+      },
+      name: {
+        "twitter:title": `AcmeCo: ${this.get('currentModel.name')}`,
+        "twitter:image": this.get('currentModel.image'),
+        "twitter:description": this.get('currentModel.bio')
+      }
     }
   },
 

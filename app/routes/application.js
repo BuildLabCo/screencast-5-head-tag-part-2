@@ -34,13 +34,15 @@ export default Ember.Route.extend({
     if (handlerMeta) {
       let meta = (typeof handlerMeta === 'object') ? handlerMeta : handlerMeta.apply(currentLeaf.handler);
 
-      _.each(meta, function(val, key) {
-        metaSelectors.push(
-          'meta[property="'+key+'"]'
-        );
-        metaElements.push(
-          $("<meta>").attr("property", key).attr("content", val)
-        );
+      _.each(meta, function(metaData, metaType) {
+        _.each(metaData, function(val, key) {
+          metaSelectors.push(
+            'meta['+metaType+'="'+key+'"]'
+          );
+          metaElements.push(
+            $("<meta>").attr(metaType, key).attr("content", val)
+          );
+        });
       });
 
       Ember.$('head').append(metaElements);
