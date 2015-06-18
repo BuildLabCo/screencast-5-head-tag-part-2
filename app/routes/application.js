@@ -9,20 +9,29 @@ export default Ember.Route.extend({
     return (hasTokens) ? base + " / " + tokens.join(" / ") : base;
   },
 
+  // so let's refactor a container for our dom elements
+  metaElements: [],
+
   actions: {
     didTransition: function() {
-      // We'll assume that only the current route's meta should be applied
+
       let handlers    = this.router.get('router.currentHandlerInfos'),
           currentLeaf = handlers[handlers.length - 1],
-          elements    = [];
 
-      // So at this point our meta is being added
-      // but when we click in to the person route, we can see that
-      // our meta is not being cleaned up. So let's clean up
+          // ref it locally
+          { metaElements } = this;
+
       if (currentLeaf.handler.meta) {
+
+        // loop through each item in the meta obj and push
+        // to the metaElements
         _.each(currentLeaf.handler.meta, function(val, key) {
-          Ember.$('head').append($("<meta>").attr(key, val));
+          metaElements.push($("<meta>").attr(key, val))
         });
+
+        // And then finally append to the head
+        // we can now see our refactor is working as expected
+        Ember.$('head').append(metaElements);
       }
 
     }
