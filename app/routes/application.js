@@ -63,7 +63,6 @@ export default Ember.Route.extend({
     // This is causing duplicates
     // should fix
     reloadMeta: function() {
-      console.log("Reloading!");
       Ember.run.once(this, this.resetMeta);
       Ember.run.next(this, this.setMeta);
     }
