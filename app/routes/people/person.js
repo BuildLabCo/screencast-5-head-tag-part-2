@@ -1,6 +1,6 @@
 import Ember from 'ember';
-
-export default Ember.Route.extend({
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+export default Ember.Route.extend(RouteMetaMixin, {
 
   // So here we need this to be a function
   // so that we can grab the employees name
