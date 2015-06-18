@@ -7,8 +7,12 @@ export default Ember.Controller.extend({
   department:   null,
   gender:       null,
 
+  // we'll notice here that out meta tags arent
+  // updating when the department changes
+  // thats because the ember-cli-meta-tags reloadMeta is actually
+  // called resetMeta. 
   updateMeta: function(){
-    this.send('reloadMeta');
+    this.send('resetMeta');
   }.observes('department'),
 
   departments: function() {
