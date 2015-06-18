@@ -51,14 +51,21 @@ export default Ember.Route.extend({
 
   actions: {
     didTransition: function() {
-
-      // Should explain why we should wrap this
-      // in the run loop
+      this._super.apply(this, arguments);
       Ember.run.next(this, this.setMeta);
     },
 
     willTransition: function() {
+      this._super.apply(this, arguments);
       Ember.run.next(this, this.resetMeta);
+    },
+
+    // This is causing duplicates
+    // should fix
+    reloadMeta: function() {
+      console.log("Reloading!");
+      Ember.run.once(this, this.resetMeta);
+      Ember.run.next(this, this.setMeta);
     }
   }
 });
