@@ -12,33 +12,49 @@ export default Ember.Route.extend({
   // so let's refactor a container for our dom elements
   metaElements: [],
 
+  // let's add a cache for our selectors
+  // to make removing them later easier
+  metaSelectors: [],
+
+  // a method that will remove the metaSelectors
+  // from the list
+  resetMeta: function() {
+    let { metaSelectors } = this;
+    Ember.$('head').find(metaSelectors.join(',')).remove();
+
+    // reset the metaSelectors array
+    // reset the metaElements array
+    this.setProperties({
+      metaSelectors: [],
+      metaElements:  []
+    });
+  },
+
   actions: {
     didTransition: function() {
 
-      let handlers    = this.router.get('router.currentHandlerInfos'),
-          currentLeaf = handlers[handlers.length - 1],
-
-          // ref it locally
-          { metaElements } = this;
+      let handlers          = this.router.get('router.currentHandlerInfos'),
+          currentLeaf       = handlers[handlers.length - 1],
+          { metaElements, metaSelectors }  = this;
 
       if (currentLeaf.handler.meta) {
 
-        // loop through each item in the meta obj and push
-        // to the metaElements
         _.each(currentLeaf.handler.meta, function(val, key) {
+          metaSelectors.push(
+            'meta[property="'+key+'"]'
+          );
           metaElements.push(
-
-            // !! Important !! I was incorrectly applying the attributes
-            // in the last commit. It should be done like this
             $("<meta>").attr("property", key).attr("content", val)
-          )
+          );
         });
 
-        // And then finally append to the head
-        // we can now see our refactor is working as expected
         Ember.$('head').append(metaElements);
       }
 
+    },
+
+    willTransition: function() {
+      this.resetMeta();
     }
   }
 });
