@@ -26,7 +26,12 @@ export default Ember.Route.extend({
         // loop through each item in the meta obj and push
         // to the metaElements
         _.each(currentLeaf.handler.meta, function(val, key) {
-          metaElements.push($("<meta>").attr(key, val))
+          metaElements.push(
+
+            // !! Important !! I was incorrectly applying the attributes
+            // in the last commit. It should be done like this
+            $("<meta>").attr("property", key).attr("content", val)
+          )
         });
 
         // And then finally append to the head
