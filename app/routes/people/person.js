@@ -2,6 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
+  // So here we need this to be a function
+  // so that we can grab the employees name
+  // we're also going to add and additional property here to see how that works
+  meta: function() {
+    return {
+      "og:name": `AcmeCo: ${this.get('currentModel.name')}`
+    }
+  },
+
   title: function() {
     return `${this.get('currentModel.name')} is Amazing!`;
   },

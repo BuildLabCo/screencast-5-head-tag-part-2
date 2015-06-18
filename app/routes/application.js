@@ -28,11 +28,13 @@ export default Ember.Route.extend({
   setMeta: function() {
     let handlers          = this.router.get('router.currentHandlerInfos'),
         currentLeaf       = handlers[handlers.length - 1],
-        { metaElements, metaSelectors }  = this;
+        { metaElements, metaSelectors }  = this,
+        handlerMeta       = currentLeaf.handler.meta;
 
-    if (currentLeaf.handler.meta) {
+    if (handlerMeta) {
+      let meta = (typeof handlerMeta === 'object') ? handlerMeta : handlerMeta.apply(currentLeaf.handler);
 
-      _.each(currentLeaf.handler.meta, function(val, key) {
+      _.each(meta, function(val, key) {
         metaSelectors.push(
           'meta[property="'+key+'"]'
         );
