@@ -1,4 +1,11 @@
--> Start by adding meta tags to the index.html and then updating them individually in the didTransition handler
+-> Start by adding meta tags to the index.html
+  -> then add an updater to the didTransition on people route
+    -> show it updating the HTML
+  -> now we want to update on person route and add a new tag
+    -> do it
+    -> show that it's shitty
+    -> lead to refactor
+
 -> Then refactor the use a meta property
 -> Then add the ability for the meta property to be a function
 -> Then use ember-cli-meta-tags
