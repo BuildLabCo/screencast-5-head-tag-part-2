@@ -7,6 +7,10 @@ export default Ember.Controller.extend({
   department:   null,
   gender:       null,
 
+  updateMeta: function() {
+    this.send('resetMeta');
+  }.observes('department'),
+
   departments: function() {
     let content = Ember.A(),
         depts = _.chain(this.get('model.content'))

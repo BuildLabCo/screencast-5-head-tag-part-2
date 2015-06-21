@@ -1,6 +1,22 @@
 import Ember from 'ember';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend( RouteMetaMixin, {
+
+  meta: function() {
+    return {
+      "property": {
+        "og:name": `AcmeCo: ${this.get('currentModel.name')}`,
+        "og:image": this.get('currentModel.image'),
+        "og:description": this.get('currentModel.bio')
+      },
+      "name": {
+        "twitter:title": `AcmeCo: ${this.get('currentModel.name')}`,
+        "twitter:image": this.get('currentModel.image'),
+        "twitter:description": this.get('currentModel.bio')
+      }
+    };  
+  },
 
   title: function() {
     return `${this.get('currentModel.name')} is Amazing!`;
@@ -23,5 +39,9 @@ export default Ember.Route.extend({
     });
 
   }
+
+
+
+
 
 });
